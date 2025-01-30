@@ -20,7 +20,6 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen>
     with SingleTickerProviderStateMixin {
-  // Example micro-interaction: animate the "Add to Cart" button on press
   late AnimationController _animationController;
   late Animation<double> _scaleAnimation;
 
@@ -39,7 +38,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
       curve: Curves.easeInOut,
     );
 
-    // Start fully scaled (1.0)
     _animationController.forward();
   }
 
@@ -62,13 +60,17 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: isLandscape ? _buildLandscapeLayout() : _buildPortraitLayout(),
+        child: Center(
+          child: isLandscape ? _buildLandscapeLayout() : _buildPortraitLayout(),
+        ),
       ),
     );
   }
 
   Widget _buildPortraitLayout() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(widget.image, height: 200),
         const SizedBox(height: 16),
@@ -82,7 +84,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
         ),
         const SizedBox(height: 16),
         Text(widget.description),
-        const Spacer(),
+        const SizedBox(height: 16),
         GestureDetector(
           onTapDown: _onPressedDown,
           onTapUp: _onPressedUp,
@@ -100,15 +102,30 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
             ),
           ),
         ),
+        const SizedBox(height: 16),
+        GestureDetector(
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Added to favourites!')),
+            );
+          },
+          child: ElevatedButton(
+            onPressed: null,
+            child: const Text('Add to Favourites'),
+          ),
+        ),
       ],
     );
   }
 
   Widget _buildLandscapeLayout() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          child: Image.asset(widget.image, height: 200),
+          child: Center(
+            child: Image.asset(widget.image, height: 200),
+          ),
         ),
         const SizedBox(width: 16),
         Expanded(
@@ -125,7 +142,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
               ),
               const SizedBox(height: 16),
               Text(widget.description),
-              const Spacer(),
+              const SizedBox(height: 16),
               GestureDetector(
                 onTapDown: _onPressedDown,
                 onTapUp: _onPressedUp,
@@ -141,6 +158,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                     onPressed: null,
                     child: const Text('Add to Cart'),
                   ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              GestureDetector(
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Added to favourites!')),
+                  );
+                },
+                child: ElevatedButton(
+                  onPressed: null,
+                  child: const Text('Add to Favourites'),
                 ),
               ),
             ],

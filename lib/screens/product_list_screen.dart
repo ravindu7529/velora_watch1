@@ -4,7 +4,6 @@ import 'package:velora_watch/screens/product_details_screen.dart';
 class ProductListScreen extends StatelessWidget {
   const ProductListScreen({Key? key}) : super(key: key);
 
-  // A sample list of watch items (title, price, image, description, etc.)
   final List<Map<String, String>> watchItems = const [
     {
       'name': 'Velora Classic',

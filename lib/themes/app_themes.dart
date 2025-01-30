@@ -13,7 +13,7 @@ class AppThemes {
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFF18392B),
-      unselectedItemColor: Colors.grey,
+      unselectedItemColor: Colors.black,
     ),
     cardColor: Colors.white,
     textTheme: const TextTheme(
@@ -25,7 +25,7 @@ class AppThemes {
 
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Color(0xFF18392B),
+    primarySwatch: Colors.green,
     primaryColor: Color(0xFF18392B),
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(

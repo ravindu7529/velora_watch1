@@ -15,9 +15,9 @@ class VeloraWatchesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Velora Watches',
-      themeMode: ThemeMode.system, // Will switch based on device settings.
-      theme: AppThemes.lightTheme, // Defined in app_themes.dart
-      darkTheme: AppThemes.darkTheme, // Defined in app_themes.dart
+      themeMode: ThemeMode.system,
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
       debugShowCheckedModeBanner: false,
       home: const LoginScreen(), // Start the app on the LoginScreen
       routes: {
