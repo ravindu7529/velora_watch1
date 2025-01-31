@@ -30,7 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Check if the current theme is dark or light mode
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Velora Watches',
+          style: TextStyle(
+            color: isDarkMode
+                ? Colors.white
+                : Colors.black, // White text in dark mode
+          ),
+        ),
+      ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
