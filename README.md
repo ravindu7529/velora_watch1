@@ -17,3 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 # velora_mobile
 # veloraWatch
 # veloraWatch
+# velora_watch1
